@@ -21,17 +21,17 @@ func Connect() {
 	db_name := os.Getenv("PG_NAME_DB")
 
 	// connection := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", db_username, db_password, db_host, db_name)
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Europe/Moscow", db_host, db_username, db_password, db_name)
-	var db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	connection := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Europe/Moscow", db_host, db_username, db_password, db_name)
+	var dbConnection, err = gorm.Open(postgres.Open(connection), &gorm.Config{})
 
 	if err != nil {
 		panic("db connection error")
 	}
 
-	DB = db
+	DB = dbConnection
 	fmt.Println("db connected successfully")
 
-	AutoMigrate(db)
+	AutoMigrate(dbConnection)
 }
 
 func AutoMigrate(dsn *gorm.DB) {

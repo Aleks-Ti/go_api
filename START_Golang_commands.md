@@ -52,7 +52,7 @@ go run main.go
 Привер установки доп зависимостей:
 
 ```bash
-go get "github.com/gorilla/mux"
+go get github.com/gofiber/fiber/v2
 # or
-go install github.com/gorilla/mux
+go install github.com/gofiber/fiber/v2
 ```
