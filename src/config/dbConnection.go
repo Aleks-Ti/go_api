@@ -1,7 +1,7 @@
 package db
 
 import (
-	"api_fiber/models"
+	"api_fiber/src/models"
 	"fmt"
 	"os"
 

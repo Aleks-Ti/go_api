@@ -1,8 +1,8 @@
 package main
 
 import (
-	db "api_fiber/config"
-	routes "api_fiber/routes"
+	db "api_fiber/src/config"
+	routes "api_fiber/src/routes"
 	"fmt"
 
 	"github.com/gofiber/fiber/v2"

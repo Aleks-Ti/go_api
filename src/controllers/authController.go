@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	db "api_fiber/config"
-	"api_fiber/models"
+	db "api_fiber/src/config"
+	"api_fiber/src/models"
 	"os"
 	"strconv"
 	"time"
