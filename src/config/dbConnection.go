@@ -16,12 +16,12 @@ func Connect() {
 	fmt.Println("Crreating structure")
 	godotenv.Load()
 	db_host := os.Getenv("PG_HOST")
-	db_username := os.Getenv("PG_USERNAME")
+	db_user := os.Getenv("PG_USER")
+	db_port := os.Getenv("PG_PORT")
 	db_password := os.Getenv("PG_PASSWORD")
-	db_name := os.Getenv("PG_NAME_DB")
+	db_name := os.Getenv("PG_DB_NAME")
 
-	// connection := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", db_username, db_password, db_host, db_name)
-	connection := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=5432 sslmode=disable TimeZone=Europe/Moscow", db_host, db_username, db_password, db_name)
+	connection := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Europe/Moscow", db_host, db_user, db_password, db_name, db_port)
 	var dbConnection, err = gorm.Open(postgres.Open(connection), &gorm.Config{})
 
 	if err != nil {
